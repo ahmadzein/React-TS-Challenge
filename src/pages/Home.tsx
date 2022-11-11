@@ -1,6 +1,6 @@
 import { generatePath, useNavigate } from "react-router-dom";
-import { useAppContext } from "../helpers/AppContext";
 import SearchResults from "../components/SearchResults";
+import { useAppContext } from "../helpers/AppContext";
 
 export const Home = () => {
   const token = useAppContext()?.token;

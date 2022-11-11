@@ -7,12 +7,12 @@ const GlobalStyle = createGlobalStyle`
     background: #f8f8f8;
     font-family: "trebuchet ms", trebuchet,Verdana, Geneva, Tahoma, sans-serif;
   }
-
+  
 header {
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 15px ;
+  padding: 15px 0 ;
   border-bottom: 1px solid grey;
 }
 

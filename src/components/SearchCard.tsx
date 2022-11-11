@@ -1,23 +1,6 @@
 import { ReactElement } from "react";
-import styled from "styled-components";
-
-const Card = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: "center";
-  padding: 10px;
-  color: #333;
-  background-color: #e6e6e6;
-  border: solid 1px gba(168, 168, 168, 0.29);
-  border-radius: 15px;
-  box-shadow: 0px 0px 3px 3px rgba(168, 168, 168, 0.29);
-`;
-const ImageWrapper = styled.div`
-  width: 100%;
-  height: 50%;
-  overflow: hidden;
-`;
+import Card from "../style/card";
+import { Image } from "./Image";
 
 interface SearchCardProps {
   image: string;
@@ -44,9 +27,12 @@ const SearchCard = (props: SearchCardProps) => {
       }}
     >
       {image && image.length && (
-        <ImageWrapper>
-          <img src={image} alt={`${title} image`} width={`100%`} />
-        </ImageWrapper>
+        <Image
+          src={image}
+          alt={`${title} image`}
+          width={`100%`}
+          height={`50%`}
+        />
       )}
       <h1>{title}</h1>
       <h2>{subtitle}</h2>

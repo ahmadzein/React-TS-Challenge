@@ -1,11 +1,11 @@
 import { Artist } from "spotify-types";
-import LargeMessage from "../style/largeMessage";
-import SearchCard from "./SearchCard";
 import styled from "styled-components";
 import noImage from "../assets/no-image.png";
+import LargeMessage from "../style/largeMessage";
+import SearchCard from "./SearchCard";
 
 export interface SearchResultsProps {
-  artists: Artist[];
+  artists?: Artist[];
   onClick: Function;
 }
 
@@ -31,8 +31,12 @@ export default function SearchResults(props: SearchResultsProps) {
                   key={artist.id}
                   image={artist.images[0] ? artist.images[0].url : noImage}
                   title={artist.name}
-                  subtitle={`${genres}`}
-                  body={<ul>{artist.type}</ul>}
+                  subtitle={`Genres: ${genres}`}
+                  body={
+                    <>
+                      <h1>Popularity:</h1> <h2>{artist.popularity}</h2>
+                    </>
+                  }
                   onClick={(e: MouseEvent) => {
                     props.onClick({ url: `artist/details/:id`, id: artist.id });
                   }}

@@ -1,7 +1,6 @@
 import axios from "axios";
-import * as React from "react";
-import { useNavigate, generatePath } from "react-router-dom";
-import { Artist } from "spotify-types";
+import { FormEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useAppContext, useAppContextUpdater } from "../helpers/AppContext";
 
@@ -24,15 +23,11 @@ export default function SearchBar(props: SearchBarProps) {
   const token = useAppContext()?.token;
   const updateResults = useAppContextUpdater()?.updateSearchResults;
 
-  const [searchKey, setSearchKey] = React.useState("");
+  const [searchKey, setSearchKey] = useState("");
 
   const navigate = useNavigate();
 
-  const routeChange = ({ url, id }: { url: string; id: string }) => {
-    const path = generatePath(url, { id });
-    navigate(path);
-  };
-  const searchArtists = async (e: any) => {
+  const searchArtists = async (e: FormEvent) => {
     e.preventDefault();
     const { data } = await axios.get("https://api.spotify.com/v1/search", {
       headers: {
@@ -45,7 +40,7 @@ export default function SearchBar(props: SearchBarProps) {
     });
 
     updateResults && updateResults(data.artists.items);
-    routeChange({ url: "/", id: "" });
+    navigate("/");
   };
   return (
     <Form onSubmit={searchArtists}>

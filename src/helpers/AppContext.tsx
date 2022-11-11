@@ -1,8 +1,9 @@
-import { ReactElement, useState, createContext, useContext } from "react";
+import { createContext, ReactElement, useContext, useState } from "react";
+import { Artist } from "spotify-types";
 
 interface AppContextInterface {
   token: string | undefined;
-  searchResults: any;
+  searchResults: Artist[];
 }
 interface AppContextUpdaterInterface {
   updateToken: Function;

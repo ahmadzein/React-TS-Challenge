@@ -1,8 +1,7 @@
-import { useContext, useEffect, useState } from "react";
-import AppContext, {
-  useAppContext,
-  useAppContextUpdater,
-} from "../helpers/AppContext";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { useAppContext, useAppContextUpdater } from "../helpers/AppContext";
 
 export interface AuthProps {}
 
@@ -17,6 +16,7 @@ export default function Auth(props: AuthProps) {
   const [token, setToken] = useState<string | undefined>(
     useAppContext()?.token
   );
+  const navigate = useNavigate();
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -40,6 +40,7 @@ export default function Auth(props: AuthProps) {
     updateToken && updateToken(undefined);
     updateresult && updateresult(undefined);
     window.localStorage.removeItem("token");
+    navigate("/");
   };
   return (
     <div>
