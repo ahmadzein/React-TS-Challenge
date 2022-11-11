@@ -1,5 +1,5 @@
 import { generatePath, useNavigate } from "react-router-dom";
-import { useAppContext } from "../AppContext";
+import { useAppContext } from "../helpers/AppContext";
 import SearchResults from "../components/SearchResults";
 
 export const Home = () => {
@@ -9,7 +9,6 @@ export const Home = () => {
   const navigate = useNavigate();
 
   const routeChange = ({ url, id }: { url: string; id: string }) => {
-    console.log("ch123", url, id);
     const path = generatePath(url, { id });
     navigate(path);
   };

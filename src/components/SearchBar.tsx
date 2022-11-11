@@ -3,7 +3,7 @@ import * as React from "react";
 import { useNavigate, generatePath } from "react-router-dom";
 import { Artist } from "spotify-types";
 import styled from "styled-components";
-import { useAppContext, useAppContextUpdater } from "../AppContext";
+import { useAppContext, useAppContextUpdater } from "../helpers/AppContext";
 
 export interface SearchBarProps {}
 const SearchInput = styled.input`
@@ -33,8 +33,6 @@ export default function SearchBar(props: SearchBarProps) {
     navigate(path);
   };
   const searchArtists = async (e: any) => {
-    console.log("ch123");
-
     e.preventDefault();
     const { data } = await axios.get("https://api.spotify.com/v1/search", {
       headers: {

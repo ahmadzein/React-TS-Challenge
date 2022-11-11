@@ -1,5 +1,8 @@
 import { useContext, useEffect, useState } from "react";
-import AppContext, { useAppContext, useAppContextUpdater } from "../AppContext";
+import AppContext, {
+  useAppContext,
+  useAppContextUpdater,
+} from "../helpers/AppContext";
 
 export interface AuthProps {}
 

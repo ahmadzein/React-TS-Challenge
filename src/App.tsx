@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import AppContext from "./AppContext";
+import AppContext from "./helpers/AppContext";
 import Header from "./components/Header";
 import Details from "./pages/Artist/Details";
 import Home from "./pages/Home";
